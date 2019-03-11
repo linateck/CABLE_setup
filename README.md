@@ -3,6 +3,14 @@
 Repository to setup a svn development branch for the first time. The code will: (i) check out and (ii) build the code. There is also a minimal
 example to test the code works at Tumbarumba.
 
+To get started:
+
+    # this is wherever you personal plan to develop the code
+    $ cd CABLE/src
+
+    # where test is what you wish to call the repo
+    $ git clone https://github.com/mdekauwe/CABLE_setup.git test
+
 To work, the expectation is that the user will update the relevant entries (paths, library locations, etc) within:
 
     $ initial_setup.py
