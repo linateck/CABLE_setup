@@ -1,8 +1,6 @@
 # CABLE setup
 
-Repository to setup a svn development branch for the first time.
-
-The code will: (i) check out and (ii) build the code. There is also a minimal
+Repository to setup a svn development branch for the first time. The code will: (i) check out and (ii) build the code. There is also a minimal
 example to test the code works at Tumbarumba.
 
 To work, the expectation is that the user will update the relevant entries (paths, library locations, etc) within:
