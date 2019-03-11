@@ -45,10 +45,16 @@ user_path = None
 #user_path = "https://trac.nci.org.au/svn/cable/branches/Users/%s/CABLE_testing" % (user)
 
 #
+## Met files ...
+#
+met_subset = ['TumbaFluxnet.1.4_met.nc']
+met_dir = None # if None, it will use default PLUMBER path
+
+#
 ## Needs different paths for NCI, storm ... this is set for my mac
 ## comment out the below and set your own, see scripts/set_default_paths.py
 #
-(met_dir, NCDIR, NCMOD, FC, CFLAGS, LD, LDFLAGS) = set_paths(nodename)
+(met_dir, NCDIR, NCMOD, FC, CFLAGS, LD, LDFLAGS) = set_paths(nodename, met_dir)
 
 # ------------------------------------------- #
 

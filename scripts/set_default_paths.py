@@ -15,7 +15,7 @@ import sys
 import subprocess
 import datetime
 
-def set_paths(nodename):
+def set_paths(nodename, met_dir=None):
 
     if "Mac" in nodename or "imac" in nodename:
         NCDIR = '/opt/local/lib/'
@@ -28,7 +28,8 @@ def set_paths(nodename):
         #
         ## Met paths ...
         #
-        met_dir = "/Users/mdekauwe/Desktop/plumber_met"
+        if met_dir is None:
+            met_dir = "/Users/mdekauwe/Desktop/plumber_met"
 
     elif "unsw" in nodename:
         cmd = "module load netcdf/4.1.3-intel"
@@ -46,11 +47,13 @@ def set_paths(nodename):
         #
         ## Met paths ...
         #
-        #met_dir = ("/srv/ccrc/data04/z3509830/Fluxnet_data/"
-        #           "All_flux_sites_processed/all_sites_no_duplicates/"
-        #           "Nc_files/Met")
-        met_dir = ("/srv/ccrc/data45/z3509830/CABLE_runs/Inputs/"
-                   "PLUMBER_sites/met")
+
+        if met_dir is None:
+            met_dir = ("/srv/ccrc/data45/z3509830/CABLE_runs/Inputs/"
+                       "PLUMBER_sites/met")
+            #met_dir = ("/srv/ccrc/data04/z3509830/Fluxnet_data/"
+            #           "All_flux_sites_processed/all_sites_no_duplicates/"
+            #           "Nc_files/Met")
     else:
 
     # this won't work on qsub as the nodename isn't raijinX, it is r1997 (etc)
@@ -75,8 +78,9 @@ def set_paths(nodename):
         #
         ## Met paths ...
         #
-        #met_dir = ("/g/data1/w35/Shared_data/Observations/Fluxnet_data/"
-        #           "FLUXNET2015/Processed_data/Missing_10%_Gapfill_20%/Daily")
-        met_dir = "/g/data1/w35/amu561/PLUMBER_sites"
+        if met_dir is None:
+            #met_dir = ("/g/data1/w35/Shared_data/Observations/Fluxnet_data/"
+            #           "FLUXNET2015/Processed_data/Missing_10%_Gapfill_20%/Daily")
+            met_dir = "/g/data1/w35/amu561/PLUMBER_sites"
 
     return (met_dir, NCDIR, NCMOD, FC, CFLAGS, LD, LDFLAGS)
